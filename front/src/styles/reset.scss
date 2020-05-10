@@ -1,0 +1,42 @@
+a {
+  text-decoration: none;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+}
+
+img:not(.v-parallax__image) {
+  max-width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+
+  td,
+  th {
+    border: 1px solid #dfe2e5;
+    padding: 0.6em 1em;
+  }
+
+  tr {
+    border-top: 1px solid #dfe2e5;
+  }
+
+  tr:nth-child(2n) {
+    background-color: #f6f8fa;
+  }
+}
+
+::-webkit-scrollbar {
+  background-color: #f7f7f7;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.48);
+  border-radius: 8px;
+  border: solid #f7f7f7;
+}
