@@ -1,0 +1,9 @@
+-r ./base.txt
+
+# Test
+pytest==5.3.2
+pytest-django==3.9.0
+
+# Code quality
+autopep8==1.5.2
+pylint==2.5.0
