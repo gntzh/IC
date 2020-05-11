@@ -7,7 +7,11 @@ export function list(config) {
 }
 
 export function retrieve(id, config) {
-    return http.get(apiURL + 'id' + '/', config)
+    return http.get(apiURL + id + '/', config)
 }
 
-export default { list, retrieve }
+export function create(data, config) {
+    return http.post(apiURL, data, config)
+}
+
+export default { list, retrieve, create }
