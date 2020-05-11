@@ -3,8 +3,7 @@
     <v-app-bar
       app
       src="https://cdn.vuetifyjs.com/images/backgrounds/bg-2.jpg"
-      dark
-      shrink-on-scroll
+      dark      
     >
       <template v-slot:extension>
         <v-tabs>
@@ -13,10 +12,26 @@
       </template>
 
       <v-spacer></v-spacer>
-
-      <v-btn text>
-        <span>登录</span>
-      </v-btn>
+      <v-dialog v-if="!isStaff" v-model="showSignIn" max-width="500px">
+        <template v-slot:activator="{ on }">
+          <v-btn dark v-on="on">登录</v-btn>
+        </template>
+        <v-card class="pa-4">
+          <sign-in-form
+            @success="
+                $notify({ title: '登录成功' })
+                showSignIn = false
+              "
+          />
+        </v-card>
+      </v-dialog>
+      <v-btn
+        v-else
+        @click="
+            signOut()
+            $notify.info({ title: '退出' })
+          "
+      >退出</v-btn>
     </v-app-bar>
 
     <v-content>
@@ -31,10 +46,12 @@
 <script>
 import jwt from '@/utils/jwt'
 import $user from '@/api/user'
+import SignInForm from '@com/auth/SignInForm.vue'
+import { sync, call } from 'vuex-pathify'
 
 export default {
   name: 'App',
-  components: {},
+  components: { SignInForm },
   data() {
     return {
       tabs: [
@@ -44,6 +61,12 @@ export default {
         { name: '统计', to: { name: 'Statistics' } }
       ]
     }
+  },
+  computed: {
+    ...sync(['auth/isStaff', 'app/showSignIn'])
+  },
+  methods: {
+    signOut: call('auth/signOut')
   },
   beforeCreate() {
     if (localStorage.getItem('theme__dark') === 'true') {
@@ -61,7 +84,7 @@ export default {
         })
       } else {
         localStorage.removeItem('token:refresh')
-        this.$notify({ msg: '登录过期', color: 'info' })
+        this.$notify({ messag: '登录过期', type: 'info' })
       }
     }
   }

@@ -9,7 +9,7 @@ const state = {
   username: "",
   nickname: "",
   avatar: "",
-  isAdmin: false,
+  isStaff: false,
   email: "",
   emailIsActive: false,
   accessToken: "",
@@ -27,7 +27,7 @@ mutations.SIGN_IN = function(state, payload) {
   state.isAuthenticated = true;
   state.userId = payload.userId;
   state.username = payload.username || "";
-  state.isAdmin = payload.isAdmin || false;
+  state.isStaff = payload.isStaff || false;
   state.email = payload.email || "";
   state.emailIsActive = payload.emailIsActive || false;
 };
@@ -37,7 +37,7 @@ mutations.SIGN_OUT = function(state, payload) {
   state.userId = 0;
   state.username = "";
   state.avatar = "";
-  state.isAdmin = false;
+  state.isStaff = false;
   state.email = "";
   state.emailIsActive = false;
   state.accessToken = "";
@@ -62,7 +62,7 @@ const actions = {
           username: res.data.username,
           email: res.data.email,
           emailIsActive: res.data.email_is_active,
-          isAdmin: res.data.is_staff,
+          isStaff: res.data.is_staff,
           avatar: res.data.avatar
         });
       },

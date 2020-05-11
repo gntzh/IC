@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import $vm from '@/main'
+import { Notification } from 'element-ui'
+import $store from '@/store'
 
 Vue.use(VueRouter)
 
@@ -42,5 +45,23 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+router.beforeEach((to, from, next) => {
+  console.log(to);
+  // document.title = to.meta.title;
+  console.log($store.state.auth);
+
+  if (to.name == 'Home') {
+    next();
+    return;
+  }
+  else if ($store.state.auth.isStaff) {
+    next()
+  }
+  else {
+    Notification.info({ title: '请先登录管理员账号' })
+    next({ name: 'Home' });
+  }
+});
 
 export default router

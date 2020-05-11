@@ -32,7 +32,6 @@ class AttrViewset(
         mixins.UpdateModelMixin,
         mixins.DestroyModelMixin,
         GenericViewSet):
-    permission_classes = ()
     serializer_class = AttrSerializer
     queryset = Attr.objects.all()
     filterset_fields = ('name',)
@@ -46,10 +45,10 @@ class ComponentViewset(
         mixins.UpdateModelMixin,
         mixins.DestroyModelMixin,
         GenericViewSet):
-    permission_classes = ()
     serializer_class = ComponentSerializer
     queryset = Component.objects.all()
-    filterset_fields = ('types', 'attrs',)
+    filterset_fields = {'types': ['exact'], 'attrs': [
+        'exact'], 'name': ['exact', ], 'id': ['in']}
     search_fields = ('name', 'id', )
 
     @action(['get'], False)
@@ -67,7 +66,6 @@ class RecordViewset(
         mixins.UpdateModelMixin,
         mixins.DestroyModelMixin,
         GenericViewSet):
-    permission_classes = ()
     serializer_class = RecordSerializer
     queryset = Record.objects.all()
     filterset_fields = {

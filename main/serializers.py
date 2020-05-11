@@ -27,6 +27,10 @@ class ComponentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Component
         fields = '__all__'
+        extra_kwargs = {
+            'types': {'allow_empty': True},
+            'attrs': {'allow_empty': True},
+        }
 
     def get_types_detail(self, obj):
         return ({'id': i.id, 'name': i.name} for i in obj.types.all())

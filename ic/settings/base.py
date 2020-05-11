@@ -150,7 +150,7 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
     # Permissions
-    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticatedOrReadOnly", ),
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAdminUser", ),
     # Throttling
     'DEFAULT_THROTTLE_CLASSES': (
         "rest_framework.throttling.ScopedRateThrottle",
