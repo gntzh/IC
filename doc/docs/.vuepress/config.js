@@ -10,10 +10,8 @@ module.exports = {
         }],
     ga: '',
     head: [
-        ['link', {
-            rel: 'icon',
-            href: `/favicon.png`
-        }]
+        ['link', { rel: 'icon', href: `/favicon.png` },
+            ['link', { rel: 'manifest', href: '/manifest.json' }],]
     ],
     themeConfig: {
         logo: '/favicon.png',
