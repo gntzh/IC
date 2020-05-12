@@ -1,7 +1,13 @@
 module.exports = {
+    base: '/IC/',
     title: '电子元器件管理系统',
     description: '对使用方法，构键技术，部署方法等作以说明。',
     evergreen: true,
+    plugins: [
+        '@vuepress/pwa', {
+            serviceWorker: true,
+            updatePopup: true
+        }],
     ga: '',
     head: [
         ['link', {
