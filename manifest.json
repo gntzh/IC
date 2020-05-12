@@ -1,7 +1,10 @@
 {
     "name": "电子元器件管理系统文档",
-    "short_name": "文档",
-    "theme_color": "#4DBA87",
+    "short_name": "电子元器件管理系统",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#fff",
+    "theme_color": "#3eaf7c",
     "icons": [
         {
             "src": "/favicon.png",
