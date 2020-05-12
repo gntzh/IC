@@ -8,7 +8,6 @@ module.exports = {
             serviceWorker: true,
             updatePopup: true
         }],
-    ga: '',
     head: [
         ['link', { rel: 'icon', href: `/favicon.png` },
             ['link', { rel: 'manifest', href: '/manifest.json' }],]

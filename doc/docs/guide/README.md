@@ -30,4 +30,4 @@ npm install
 npm run dev # 默认8080端口
 ```
 
-即可打开前端界面`localhost:8000`， 登录后即可查看各功能
+即可打开前端界面`localhost:8080`， 登录后即可查看各功能
