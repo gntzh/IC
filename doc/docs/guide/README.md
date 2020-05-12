@@ -9,7 +9,8 @@
 ## 启动后端
 
 ```shell
-# 安装依赖
+# 项目目录下（manage.py同级）
+python -m venv .venv
 pip install -r requirements/dev.txt
 python manage.py makemigratons # 生成数据库迁移文件
 python manage.py migrate # 数据库迁移

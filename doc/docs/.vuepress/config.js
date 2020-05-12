@@ -14,8 +14,11 @@ module.exports = {
         nav: [
             { text: '主页', link: '/' },
             { text: '介绍', link: '/guide/' },
+            { text: '关于', link: '/about/' },
             { text: 'Github', link: 'https://github.com/ShoorDay/IC' },
         ],
+        sidebarDepth: 2,
+        collapsable: true,
         sidebar: {
             '/guide/': [
                 '',
@@ -24,8 +27,6 @@ module.exports = {
                 '部署',
                 '部署参考'
             ]
-        },
-        displayAllHeaders: true,
-        sidebarDepth: 2
+        }
     }
 }
