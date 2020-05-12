@@ -25,6 +25,7 @@ module.exports = {
         sidebar: {
             '/guide/': [
                 '',
+                '功能需求',
                 '后端',
                 '前端',
                 '部署',
