@@ -9,6 +9,10 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-18.04
+    defaults:
+      run:
+        working-directory: ./doc
+
     steps:
       - uses: actions/checkout@v2
         with:
@@ -17,7 +21,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
+          node-version: "12.x"
 
       - name: Cache dependencies
         uses: actions/cache@v1
@@ -27,7 +31,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - run: cd ./doc
       - run: npm ci
       - run: npm run build
 
