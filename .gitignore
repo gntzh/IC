@@ -165,3 +165,6 @@ whoosh_index/
 
 # redis dump
 *.rdb
+
+node_modules/
+dist/
